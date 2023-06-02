@@ -1,0 +1,47 @@
+CREATE TABLE MOBILES (
+  prodid INT PRIMARY KEY,
+  modelname VARCHAR(50),
+  company VARCHAR(50),
+  connectivity VARCHAR(10),
+  ram VARCHAR(10),
+  rom VARCHAR(10),
+  color VARCHAR(20),
+  screen VARCHAR(20),
+  battery VARCHAR(20),
+  processor VARCHAR(50),
+  price DECIMAL(10, 2),
+  rating DECIMAL(3, 1)
+);
+INSERT INTO MOBILES (brand, modelname, price, rating)
+VALUES
+  ('Samsung', 'Galaxy S21', 999.99, 4.5),
+  ('Apple', 'iPhone 12', 1099.99, 4.7),
+  ('Google', 'Pixel 5', 699.99, 4.3);
+
+________________________________________________________________________________________________________________
+**** Create a parameterized stored procedure to reduce the price of a
+company's products by a specified amount. Call the SP from a
+program.
+
+
+CREATE PROCEDURE ReducePriceByAmount (
+  IN p_company VARCHAR(50),
+  IN p_amount DECIMAL(10, 2)
+)
+BEGIN
+  UPDATE MOBILES
+  SET price = price - p_amount
+  WHERE company = p_company;
+END;
+__________________________________________________________________________________________________________________
+
+*****Add new column "purpose varchar(50)" to the mobiles table using
+alter query
+
+ALTER TABLE MOBILES
+ADD purpose VARCHAR(50);
+_________________________________________________________________________________________________________________
+
+****
+
+
